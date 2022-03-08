@@ -20,19 +20,19 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-//    @Step("Вводится логин")
+    @Step("Вводится логин")
     public LoginPage fillLogin(String login) {
         loginInput.sendKeys(login);
         return this;
     }
 
-//    @Step("Вводится пароль")
+    @Step("Вводится пароль")
     public LoginPage fillPassword(String password) {
         passwordInput.sendKeys(password);
         return this;
     }
 
-//    @Step("Авторизация")
+    @Step("Авторизация")
     public ProductsPage clickLoginButton() {
         loginButton.click();
         return new ProductsPage(driver);

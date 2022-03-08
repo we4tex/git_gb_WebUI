@@ -15,7 +15,7 @@ public class FinishPage extends BasePage {
     @FindBy(id = "finish")
     public WebElement finishButton;
 
-//    @Step("Подтверждение заказа")
+    @Step("Подтверждение заказа")
     public void clickFinishButton() {
         finishButton.click();
     }

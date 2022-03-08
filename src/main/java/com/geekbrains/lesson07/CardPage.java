@@ -14,7 +14,7 @@ public class CardPage extends BasePage {
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
 
-//    @Step("Переход к заполнению информации")
+    @Step("Переход к заполнению информации")
     public CheckoutPage clickCheckoutButton() {
         checkoutButton.click();
         return new CheckoutPage(driver);

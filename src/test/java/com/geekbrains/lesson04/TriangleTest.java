@@ -34,15 +34,9 @@ public class TriangleTest {
     @Test
     @DisplayName("Negative tests: The Triangle Inequality Theorem")
     void checkIncorrectArgument() {
-        assertAll(() -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(3, 1, 1);
-                }, "One side of a triangle is greater than the sum of the other 2 sides"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(2, 5, 2);
-                }, "One side of a triangle is greater than the sum of the other 2 sides"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(3, 3, 7);
-                }, "One side of a triangle is greater than the sum of the other 2 sides")
+        assertAll(() -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(3, 1, 1), "One side of a triangle is greater than the sum of the other 2 sides"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(2, 5, 2), "One side of a triangle is greater than the sum of the other 2 sides"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(3, 3, 7), "One side of a triangle is greater than the sum of the other 2 sides")
         );
         logger.info("Logging message: {}", "The Triangle Inequality Theorem");
     }
@@ -50,24 +44,12 @@ public class TriangleTest {
     @Test
     @DisplayName("Negative tests: Number must be greater than zero")
     void checkCorrectArgument() {
-        assertAll(() -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(-1, 1, 1);
-                }, "Number must be greater than zero"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(2, -2, 2);
-                }, "Number must be greater than zero"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(3, 3, -3);
-                }, "Number must be greater than zero"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(0, 1, 1);
-                }, "Number must be greater than zero"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(2, 0, 2);
-                }, "Number must be greater than zero"),
-                () -> assertThrows(ExceptionArgumentTriangle.class, () -> {
-                    Triangle.areaTriangle(3, 3, 0);
-                }, "Number must be greater than zero"));
+        assertAll(() -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(-1, 1, 1), "Number must be greater than zero"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(2, -2, 2), "Number must be greater than zero"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(3, 3, -3), "Number must be greater than zero"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(0, 1, 1), "Number must be greater than zero"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(2, 0, 2), "Number must be greater than zero"),
+                () -> assertThrows(ExceptionArgumentTriangle.class, () -> Triangle.areaTriangle(3, 3, 0), "Number must be greater than zero"));
         logger.info("Logging message: {}", "Number must be greater than zero");
     }
 

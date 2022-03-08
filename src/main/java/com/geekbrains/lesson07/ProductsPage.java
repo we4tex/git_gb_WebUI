@@ -14,7 +14,7 @@ public class ProductsPage extends BasePage {
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement addProduct;
 
-//    @Step("Добавление товара в корзину")
+    @Step("Добавление товара в корзину")
     public ProductsPage clickAddProduct() {
         addProduct.click();
         return this;
@@ -23,7 +23,7 @@ public class ProductsPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
     private WebElement cardButton;
 
-//    @Step("Переход в корзину")
+    @Step("Переход в корзину")
     public CardPage clickCardButton() {
         cardButton.click();
         return new CardPage(driver);

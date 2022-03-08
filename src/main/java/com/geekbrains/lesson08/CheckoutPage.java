@@ -1,18 +1,18 @@
-package com.geekbrains.lesson07;
+package com.geekbrains.lesson08;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
 
-public class CheckoutPage extends BasePage {
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
-    public CheckoutPage(WebDriver driver) {
-        super(driver);
-    }
+public class CheckoutPage {
 
-    @FindBy(id = "first-name")
-    public WebElement firstNameInput;
+    private final SelenideElement firstNameInput = $(By.id("first-name"));
+    private final SelenideElement lastNameInput = $(By.id("last-name"));
+    private final SelenideElement postalCodeInput = $(By.id("postal-code"));
+    private final SelenideElement purchaseButton = $(By.id("continue"));
 
     @Step("Вводится имя")
     public CheckoutPage fillFirstName(String firstName) {
@@ -20,17 +20,11 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    @FindBy(id = "last-name")
-    public WebElement lastNameInput;
-
     @Step("Вводится фамилия")
     public CheckoutPage fillLastName(String lastName) {
         lastNameInput.sendKeys(lastName);
         return this;
     }
-
-    @FindBy(id = "postal-code")
-    public WebElement postalCodeInput;
 
     @Step("Вводится почтовый код")
     public CheckoutPage fillPostalCode(String postalCode) {
@@ -38,13 +32,10 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    @FindBy(id = "continue")
-    public WebElement purchaseButton;
-
     @Step("Подтверждение ввода информации")
     public FinishPage clickPurchaseButton() {
         purchaseButton.click();
-        return new FinishPage(driver);
+        return page(FinishPage.class);
     }
 
 }
